@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Superforma</title>
+    <style>
+        /* Stiluri generale */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 10px;
+            position: relative;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+        }
+        nav a:hover {
+            color: red;
+        }
+        .highlight { 
+            color: red;
+        }
+        
+        /* Stiluri pagina principala */
+        .slogan {
+            font-size: 18px;
+            margin-top: -10px;
+            color: #555;
+            padding: 0 20px;
+        }
+        .categories a {
+            display: block;
+            margin: 15px auto;
+            padding: 12px 20px;
+            background: #eee;
+            width: 200px;
+            text-decoration: none;
+            color: black;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .categories a:hover {
+            background: #ddd;
+            transform: translateY(-2px);
+        }
+        .form-container { 
+            display: none;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Stiluri sectiune rezultate */
+        #rezultate { 
+            display: none;
+            padding: 20px;
+        }
+        .rezultate-content {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            text-align: left;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-style: italic;
+            color: #666;
+        }
+        .testimonial {
+            margin: 30px 0;
+            line-height: 1.6;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #f4f4f4;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            border: 1px solid #ccc;
+        }
+        .back-button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        
+        /* Stiluri formular */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, select, textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #cc0000;
+        }
+
+        /* Stiluri pentru termeni */
+        #termeni-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .termeni-content {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .inchide-termeni {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="https://www.superforma.ro" target="_blank" rel="noopener noreferrer">Despre Noi</a>
+            <a href="javascript:void(0)" onclick="showSection('servicii')">Servicii</a>
+            <a href="javascript:void(0)" onclick="showSection('rezultate')">Rezultate</a>
+        </nav>
+        <h1><span class="highlight" id="titluPrincipal">Fii în superforma!</span></h1>
+        <p class="slogan" id="slogan">Transformă-ți viața, un pas pe rând: alimentație, sport, stil de viață.</p>
+    </header>
+
+    <!-- Sectiunea principala -->
+   <!DOCTYPE html>
+<html lang="ro">
+<head>
+    <!-- ... stilurile rămân aceleași ... -->
+</head>
+<body>
+    <!-- Header și navigație rămân aceleași ... -->
+
+    <!-- Sectiunea principala -->
+    <main id="mainContent">
+        <section id="servicii">
+            <h2>Servicii</h2>
+            <div class="categories">
+                <!-- Butoane modificate -->
+                <a onclick="showForm('Slăbit')">Slăbit</a>
+                <a onclick="showForm('Muscular')">Masă Musculară</a>
+                <a onclick="showForm('Menținere')">Menținere</a>
+                <a onclick="showSkinForm()">Skincare</a>
+            </div>
+        </section>
+
+        <!-- Formular Skincare corectat -->
+        <section id="skin-container" class="form-container">
+            <h3>Analiză Ten</h3>
+            <form id="skinForm" onsubmit="handleSkinSubmit(event)">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nume_skin">Nume complet:</label>
+                        <input type="text" id="nume_skin" name="nume" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="telefon">Număr telefon:</label>
+                        <input type="tel" id="telefon" name="telefon" pattern="[0-9]{10}" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="varsta_skin">Vârstă:</label>
+                        <input type="number" id="varsta_skin" name="varsta" min="16" max="80" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="skinType">Tip ten:</label>
+                        <select id="skinType" required>
+                            <option value="">Alegeți</option>
+                            <option value="uleios">Uleios</option>
+                            <option value="uscat">Uscat</option>
+                            <option value="mixt">Mixt</option>
+                            <option value="sensibil">Sensibil</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group full-width">
+                        <label for="routine">Rutina actuală:</label>
+                        <textarea id="routine" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Expunere la soare:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="sun" value="low" required> Mică</label>
+                            <label><input type="radio" name="sun" value="medium"> Medie</label>
+                            <label><input type="radio" name="sun" value="high"> Mare</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <label>
+                    <input type="checkbox" name="gdpr" required> 
+                    Accept <a href="javascript:void(0)" onclick="showTerms()" style="color:red;text-decoration:underline">termenii și condițiile</a>
+                </label>
+                
+                <button type="submit">Trimite</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Sectiunea Termeni -->
+    <section id="termeni-section">
+        <div class="termeni-content">
+            <button class="inchide-termeni" onclick="hideTerms()">×</button>
+           <h2>Politică de Confidențialitate și Condiții de Utilizare</h2>
+        
+        <!-- Conținutul tău adăugat -->
+        <p>Bun venit pe <strong>Superforma</strong>! Respectăm dreptul dumneavoastră la confidențialitate și ne angajăm să protejăm datele personale în conformitate cu <strong>Regulamentul General privind Protecția Datelor (GDPR)</strong>. Prin utilizarea acestui site, sunteți de acord cu prelucrarea limitată a datelor dumneavoastrare conform descrierii de mai jos.</p>
+
+        <hr>
+
+        <h3>1. Datele pe care le colectăm</h3>
+        <p>Pentru a vă oferi serviciile noastre, colectăm și prelucrăm următoarele <strong>date personale</strong>:</p>
+        <ul>
+            <li><strong>Numele complet</strong></li>
+            <li><strong>Număr de telefon</strong></li>
+            <li><strong>Înălțimea</strong></li>
+            <li><strong>Vârsta</strong></li>
+        </ul>
+        <p><strong>Nu colectăm sau stocăm date sensibile</strong> (de exemplu: informații medicale, origine etnică, opinii politice, credințe religioase, date biometrice).</p>
+
+        <h3>2. Scopul prelucrării datelor</h3>
+        <p>Datele sunt utilizate exclusiv pentru:</p>
+        <ul>
+            <li>Personalizarea serviciilor oferite</li>
+            <li>Comunicarea cu dumneavoastră (ex: confirmări, actualizări)</li>
+            <li>Îmbunătățirea experienței pe site prin analize statistice anonime</li>
+        </ul>
+
+        <h3>3. Baza legală a prelucrării</h3>
+        <p>Prelucrarea se bazează pe <strong>consimțământul dumneavoastră explicit</strong>, acordat prin bifarea căsuței de mai jos. Puteți retrage consimțământul oricând, contactându-ne la <em>[adresă email]</em>.</p>
+
+        <!-- Continuă cu restul secțiunilor așa cum le-ai trimis -->
+        <h3>4. Stocarea și securitatea datelor</h3>
+        <ul>
+            <li>Datele sunt stocate pe servere securizate, cu acces restricționat</li>
+            <li>Folosim măsuri tehnice (ex: criptare) și organizatorice pentru a preveni accesul neautorizat</li>
+            <li>Reținem datele <strong>doar atât timp cât este necesar</strong> (ex: până la finalizarea serviciului sau la cererea de ștergere)</li>
+        </ul>
+
+        <h3>5. Partajarea cu terți</h3>
+        <p>Datele pot fi partajate <strong>doar cu parteneri de încredere</strong> (ex: furnizori de hosting) care respectă GDPR. Nu le vindem sau divulgăm în scopuri comerciale nelegate de serviciile noastre.</p>
+
+        <h3>6. Drepturile dumneavoastră</h3>
+        <p>Conform GDPR, aveți dreptul la:</p>
+        <ul>
+            <li><strong>Acces</strong> la datele stocate</li>
+            <li><strong>Corectarea</strong> informațiilor inexacte</li>
+            <li><strong>Ștergerea</strong> datelor (<em>dreptul la a fi uitat</em>)</li>
+            <li><strong>Restricționarea</strong> prelucrării</li>
+            <li><strong>Portabilitatea</strong> datelor</li>
+            <li><strong>Opoziția</strong> față de prelucrarea bazată pe interes legitim</li>
+        </ul>
+        <p>Pentru a exercita aceste drepturi, ne puteți contacta la <em>[adresă email]</em> sau <em>[număr de telefon]</em>.</p>
+
+        <h3>7. Acceptarea termenilor</h3>
+        <p><strong>Sunt de acord</strong> cu prelucrarea datelor mele (nume, telefon, înălțime, vârstă) conform politicii descrise.<br>
+        <strong>Confirm</strong> că am peste 16 ani sau dispun de acordul unui titular parental (pentru utilizatori sub 16 ani).</p>
+
+        <h3>8. Contact</h3>
+        <p>Pentru întrebări sau solicitări legate de datele dumneavoastră, ne puteți contacta la:<br>
+        <strong>Responsabil cu Protecția Datelor (DPO)</strong>:<br>
+        <em>[Nume DPO]</em><br>
+        <em>[Email]</em><br>
+        <em>[Telefon]</em></p>
+
+        <hr>
+
+        <p><strong>Atenție</strong>: Orice modificare a acestei politici va fi comunicată prin actualizarea acestei pagini. Vă recomandăm să o verificați periodic.</p>
+        <p><em>Ultima actualizare: [data]</em></p>
+
+        <button onclick="hideTerms()" class="back-button">Înapoi la formular</button>
+    </div>
+</section>
+
+            
+            <hr>
+
+        <!-- ... restul secțiunilor rămân aceleași ... -->
+    </main>
+
+    <script>
+        // Funcții actualizate
+        function showForm(category) {
+            document.getElementById('form-container').style.display = 'block';
+            document.getElementById('skin-container').style.display = 'none';
+            document.getElementById("form-title").textContent = `Formular: ${category}`;
+            window.scrollTo({
+                top: document.getElementById('form-container').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        function showSkinForm() {
+            document.getElementById('form-container').style.display = 'none';
+            document.getElementById('skin-container').style.display = 'block';
+            window.scrollTo({
+                top: document.getElementById('skin-container').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        function handleSkinSubmit(e) {
+            e.preventDefault();
+            alert('Vă mulțumim! Formularul a fost trimis cu succes! Vă vom contacta în maxim 24 de ore.');
+            showSection('main');
+        }
+
+        // Funcția existentă pentru schimbarea secțiunilor
+        function showSection(section) {
+            const mainContent = document.getElementById("mainContent");
+            const rezultateSection = document.getElementById("rezultate");
+            const forms = document.querySelectorAll('.form-container');
+            
+            if(section === 'rezultate') {
+                mainContent.style.display = "none";
+                forms.forEach(form => form.style.display = "none");
+                rezultateSection.style.display = "block";
+                document.getElementById("titluPrincipal").textContent = "Rezultatele Clienților";
+                document.getElementById("slogan").style.display = "none";
+            } else {
+                mainContent.style.display = "block";
+                forms.forEach(form => form.style.display = "none");
+                rezultateSection.style.display = "none";
+                document.getElementById("titluPrincipal").textContent = "Fii în superforma!";
+                document.getElementById("slogan").style.display = "block";
+            }
+            
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // ... alte funcții existente ...
+    </script>
+</body>
+</html>
+
+<!-- Adaugă acest cod în secțiunea existentă a formularului -->  
+               
+                               
+<section id="form-container" class="form-container">
+    <h3 id="form-title">Program Slăbit</h3>
+    <form action="#" method="post" id="slabitForm">
+        <!-- Rând 1 -->
+        <div class="form-row">
+            <div class="input-group">
+                <label for="nume">Nume complet:</label>
+                <input type="text" id="nume" name="nume" required pattern="[A-Za-zȘșȚțĂăÂâÎîȘșȚț ]+">
+            </div>
+             <div class="input-group">
+                        <label for="telefon">Număr telefon:</label>
+                        <input type="tel" id="telefon" name="telefon" pattern="[0-9]{10}" required>
+                    </div>
+            <div class="input-group">
+                <label for="varsta">Vârstă:</label>
+                <input type="number" id="varsta" name="varsta" required min="16" max="80">
+            </div>
+        </div>
+
+        <!-- Rând 2 -->
+        <div class="form-row">
+            <div class="input-group">
+                <label for="inaltime">Înălțime (cm):</label>
+                <input type="number" id="inaltime" name="inaltime" required min="140" max="230">
+            </div>
+            
+            <div class="input-group">
+                <label for="greutate">Greutate actuală (kg):</label>
+                <input type="number" id="greutate" name="greutate" required min="40" max="250">
+            </div>
+        </div>
+
+        <!-- Rând 3 -->
+        <div class="form-row">
+            <div class="input-group">
+                <label for="target">Target greutate (kg):</label>
+                <input type="number" id="target" name="target" required min="35" max="200">
+            </div>
+            
+            <div class="input-group">
+                <label for="activitate">Nivel activitate:</label>
+                <select id="activitate" name="activitate" required>
+                    <option value="sedentar">Sedentar</option>
+                    <option value="usor">Exercițiu ușor (1-3x/săpt)</option>
+                    <option value="moderat">Exercițiu moderat (3-5x/săpt)</option>
+                    <option value="intens">Exercițiu intens (6-7x/săpt)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Rând 4 -->
+        <div class="input-group full-width">
+            <label>Preferințe alimentare:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="dieta[]" value="vegetarian"> Vegetarian</label>
+                <label><input type="checkbox" name="dieta[]" value="vegan"> Vegan</label>
+                <label><input type="checkbox" name="dieta[]" value="fara-lactoza"> Fără lactoză</label>
+                <label><input type="checkbox" name="dieta[]" value="fara-gluten"> Fără gluten</label>
+            </div>
+        </div>
+
+        <!-- Rând 5 -->
+        <div class="input-group full-width">
+            <label for="medical">Alergeni alimentari:</label>
+            <textarea id="medical" name="medical" rows="2" 
+                      placeholder="Ex: soia,lapte,gluten,etc ..."></textarea>
+        </div>
+
+        <!-- Rând 6 -->
+        <div class="input-group full-width">
+            <label for="obstacole">Principalele obstacole în slăbit:</label>
+            <select id="obstacole" name="obstacole" multiple size="3" required>
+                <option value="pofta-mancare">Poftă de mâncare</option>
+                <option value="timp">Lipsă timp</option>
+                <option value="motivatie">Lipsă motivație</option>
+                <option value="stres">Mâncat din stres</option>
+                <option value="somn">Somn neregulat</option>
+            </select>
+        </div>
+
+                <label>
+                    <input type="checkbox" name="gdpr" required> 
+                    Accept <a href="javascript:void(0)" onclick="showTerms()" style="color:red;text-decoration:underline">termenii și condițiile</a>
+                </label>
+                
+                <button type="submit">Trimite</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Sectiunea Termeni -->
+    <section id="termeni-section">
+        <div class="termeni-content">
+            <button class="inchide-termeni" onclick="hideTerms()">×</button>
+           <h2>Politică de Confidențialitate și Condiții de Utilizare</h2>
+        
+        <!-- Conținutul tău adăugat -->
+        <p>Bun venit pe <strong>Superforma</strong>! Respectăm dreptul dumneavoastră la confidențialitate și ne angajăm să protejăm datele personale în conformitate cu <strong>Regulamentul General privind Protecția Datelor (GDPR)</strong>. Prin utilizarea acestui site, sunteți de acord cu prelucrarea limitată a datelor dumneavoastrare conform descrierii de mai jos.</p>
+
+        <hr>
+
+        <h3>1. Datele pe care le colectăm</h3>
+        <p>Pentru a vă oferi serviciile noastre, colectăm și prelucrăm următoarele <strong>date personale</strong>:</p>
+        <ul>
+            <li><strong>Numele complet</strong></li>
+            <li><strong>Număr de telefon</strong></li>
+            <li><strong>Înălțimea</strong></li>
+            <li><strong>Vârsta</strong></li>
+        </ul>
+        <p><strong>Nu colectăm sau stocăm date sensibile</strong> (de exemplu: informații medicale, origine etnică, opinii politice, credințe religioase, date biometrice).</p>
+
+        <h3>2. Scopul prelucrării datelor</h3>
+        <p>Datele sunt utilizate exclusiv pentru:</p>
+        <ul>
+            <li>Personalizarea serviciilor oferite</li>
+            <li>Comunicarea cu dumneavoastră (ex: confirmări, actualizări)</li>
+            <li>Îmbunătățirea experienței pe site prin analize statistice anonime</li>
+        </ul>
+
+        <h3>3. Baza legală a prelucrării</h3>
+        <p>Prelucrarea se bazează pe <strong>consimțământul dumneavoastră explicit</strong>, acordat prin bifarea căsuței de mai jos. Puteți retrage consimțământul oricând, contactându-ne la <em>[adresă email]</em>.</p>
+
+        <!-- Continuă cu restul secțiunilor așa cum le-ai trimis -->
+        <h3>4. Stocarea și securitatea datelor</h3>
+        <ul>
+            <li>Datele sunt stocate pe servere securizate, cu acces restricționat</li>
+            <li>Folosim măsuri tehnice (ex: criptare) și organizatorice pentru a preveni accesul neautorizat</li>
+            <li>Reținem datele <strong>doar atât timp cât este necesar</strong> (ex: până la finalizarea serviciului sau la cererea de ștergere)</li>
+        </ul>
+
+        <h3>5. Partajarea cu terți</h3>
+        <p>Datele pot fi partajate <strong>doar cu parteneri de încredere</strong> (ex: furnizori de hosting) care respectă GDPR. Nu le vindem sau divulgăm în scopuri comerciale nelegate de serviciile noastre.</p>
+
+        <h3>6. Drepturile dumneavoastră</h3>
+        <p>Conform GDPR, aveți dreptul la:</p>
+        <ul>
+            <li><strong>Acces</strong> la datele stocate</li>
+            <li><strong>Corectarea</strong> informațiilor inexacte</li>
+            <li><strong>Ștergerea</strong> datelor (<em>dreptul la a fi uitat</em>)</li>
+            <li><strong>Restricționarea</strong> prelucrării</li>
+            <li><strong>Portabilitatea</strong> datelor</li>
+            <li><strong>Opoziția</strong> față de prelucrarea bazată pe interes legitim</li>
+        </ul>
+        <p>Pentru a exercita aceste drepturi, ne puteți contacta la <em>[adresă email]</em> sau <em>[număr de telefon]</em>.</p>
+
+        <h3>7. Acceptarea termenilor</h3>
+        <p><strong>Sunt de acord</strong> cu prelucrarea datelor mele (nume, telefon, înălțime, vârstă) conform politicii descrise.<br>
+        <strong>Confirm</strong> că am peste 16 ani sau dispun de acordul unui titular parental (pentru utilizatori sub 16 ani).</p>
+
+        <h3>8. Contact</h3>
+        <p>Pentru întrebări sau solicitări legate de datele dumneavoastră, ne puteți contacta la:<br>
+        <strong>Responsabil cu Protecția Datelor (DPO)</strong>:<br>
+        <em>[Nume DPO]</em><br>
+        <em>[Email]</em><br>
+        <em>[Telefon]</em></p>
+
+        <hr>
+
+        <p><strong>Atenție</strong>: Orice modificare a acestei politici va fi comunicată prin actualizarea acestei pagini. Vă recomandăm să o verificați periodic.</p>
+        <p><em>Ultima actualizare: [data]</em></p>
+
+        <button onclick="hideTerms()" class="back-button">Înapoi la formular</button>
+    </div>
+</section>
+
+            
+            <hr>
+            
+      
+       
+    <!-- Sectiunea Rezultate -->
+    <section id="rezultate">
+        <div class="rezultate-content">
+            <div class="image-placeholder">
+              <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/52XB1XDp/Collage-20240222-195325.jpg' border='0' alt='Collage-20240222-195325'/></a>
+            </div>
+
+            <div class="testimonial">
+                <h3>Transformare prin curiozitate</h3>
+                <p>Am început această călătorie din curiozitate, fără un scop precis, doar cu ideea că ar fi bine să pierd câteva kilograme. Surprinzător, pe lângă greutatea slăbită, am descoperit și bonusuri neașteptate: mai multă energie, o încredere de sine crescută și multe alte beneficii care mi-au transformat viața.</p>
+                
+                <p>A devenit evident pentru mine că curiozitatea poate fi un lucru extrem de puternic pentru schimbare și dezvoltare personală. Transformarea mea nu a fost doar fizică; a fost o revoluție mentală și emoțională. Am realizat că micile schimbări pe care le fac în fiecare zi pot avea un impact semnificativ asupra vieții mele. Această descoperire m-a ajutat să devin o versiune îmbunătățită a mea, iar călătoria continuă cu entuziasm.</p>
+            </div>
+
+            <div class="image-placeholder">
+                <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/xdKbTM5G/IMG-20250404-213125-317.jpg' border='0' alt='IMG-20250404-213125-317'/></a>
+            </div>
+
+            <div class="testimonial">
+                <h3>Menținerea formei</h3>
+                <p>Înainte să încep, mă macina o întrebare: cum o să fie posibil să-mi mențin forma în condițiile în care o să fiu nevoit să renunț la antrenamente?</p>
+                
+                <p>În prima perioadă mă antrenam de 6-7 ori pe săptămână, iar progresul era lent. Odată ce mi-am început activitatea de inginer, timpul s-a limitat, iar la un calcul simplu reușeam să ajung la sală doar de 3-4 ori/săptămână.</p>
+                
+                <p>În momentul acela mi-am întâlnit antrenorul și am înțeles că 80% contează alimentația și 20% antrenamentul. Astfel am implementat pentru prima dată un plan de mese personalizat ce mi-a permis să mănânc orice, dar în cantitățile potrivite.</p>
+                
+                <p>Concret, acesta a însemnat:</p>
+                <ul>
+                    <li>Hidratare eficientă</li>
+                    <li>3 mese principale și 2 gustări pe zi</li>
+                    <li>Odihnă suficientă și somn de calitate</li>
+                </ul>
+                
+                <p>Respectând acești pași simpli, după 1 lună m-am surprins să observ îmbunătățiri, eu care mă speriam că voi pierde din rezultate. Iar de 8 luni mă mențin la această formă!</p>
+            </div>
+
+            <div class="image-placeholder">
+                <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/5ypB9LxK/IMG-20250404-WA0026.jpg' border='0' alt='IMG-20250404-WA0026'/></a>
+            </div>
+
+            <div class="testimonial">
+                <h3>Dezvoltare durabilă</h3>
+                <p>După multe încercări eșuate de a crește masa musculară și de a modela corpul, am reușit cu ajutorul unei echipe de antrenori să înțeleg ce am de făcut și cum să mențin ce am construit. +11 kg și încă în proces.</p>
+                <p>Sper să inspir la rândul meu acele persoane care încearcă de mult să facă o schimbare.</p>
+            </div>
+
+            <a href="javascript:void(0)" onclick="showSection('main')" class="back-button">Înapoi la pagina principală</a>
+        </div>
+    </section>
+
+    <script>
+        // Funcții pentru termeni
+        function showTerms() {
+            document.getElementById('termeni-section').style.display = 'block';
+            document.getElementById('form-container').style.display = 'none';
+        }
+
+        function hideTerms() {
+            document.getElementById('termeni-section').style.display = 'none';
+            document.getElementById('form-container').style.display = 'block';
+            window.scrollTo({
+                top: document.getElementById('form-container').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        // Funcții principale
+        function showForm(category) {
+            const formContainer = document.getElementById("form-container");
+            formContainer.style.display = "block";
+            document.getElementById("form-title").textContent = `Formular: ${category}`;
+            window.scrollTo({
+                top: formContainer.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        function showSection(section) {
+            const mainContent = document.getElementById("mainContent");
+            const rezultateSection = document.getElementById("rezultate");
+            const titlu = document.getElementById("titluPrincipal");
+            const slogan = document.getElementById("slogan");
+
+            if(section === 'rezultate') {
+                mainContent.style.display = "none";
+                rezultateSection.style.display = "block";
+                titlu.textContent = "Rezultatele Clienților";
+                slogan.style.display = "none";
+            } else {
+                mainContent.style.display = "block";
+                rezultateSection.style.display = "none";
+                titlu.textContent = "Fii în superforma!";
+                slogan.style.display = "block";
+            }
+            
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
